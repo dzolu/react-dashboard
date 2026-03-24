@@ -7,6 +7,8 @@ import {
 } from '@mui/material'
 import { useNavigate } from 'react-router-dom'
 
+const sidebarWidth = 240
+
 const menuItems = [
   { label: 'Dashboard', path: '/' },
   { label: 'Users', path: '/users' },
@@ -19,7 +21,17 @@ export const Sidebar = () => {
   const navigate = useNavigate()
 
   return (
-    <Drawer variant="permanent">
+    <Drawer
+      variant="permanent"
+      sx={{
+        flexShrink: 0,
+        width: sidebarWidth,
+        '& .MuiDrawer-paper': {
+          boxSizing: 'border-box',
+          width: sidebarWidth,
+        },
+      }}
+    >
       <Toolbar />
       <List>
         {menuItems.map((item) => (
