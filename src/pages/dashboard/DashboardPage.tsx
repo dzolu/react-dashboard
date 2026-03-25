@@ -1,5 +1,6 @@
-import { Button, Grid, Stack, Typography } from '@mui/material'
+import { Button, Grid, Stack } from '@mui/material'
 
+import { EmptyState } from '@/shared/components/empty-state/EmptyState'
 import { PageHeader } from '@/shared/components/page-header/PageHeader'
 import { SectionCard } from '@/shared/components/section-card/SectionCard'
 import { StatCard } from '@/shared/components/stat-card/StatCard.tsx'
@@ -46,13 +47,17 @@ export function DashboardPage() {
         </Grid>
       </Grid>
       <SectionCard title="Revenue">
-        <Typography color="text.secondary">Chart coming soon</Typography>
+        <EmptyState
+          title="No revenue data yet"
+          description="Revenue charts and billing trends will appear here once data is available."
+        />
       </SectionCard>
 
       <SectionCard title="Recent Activity">
-        <Typography color="text.secondary">
-          Activity list coming soon
-        </Typography>
+        <EmptyState
+          title="No recent activity"
+          description="New events, user actions, and system updates will appear here."
+        />
       </SectionCard>
     </Stack>
   )
