@@ -46,19 +46,25 @@ export function DashboardPage() {
           />
         </Grid>
       </Grid>
-      <SectionCard title="Revenue">
-        <EmptyState
-          title="No revenue data yet"
-          description="Revenue charts and billing trends will appear here once data is available."
-        />
-      </SectionCard>
+      <Grid container spacing={3}>
+        <Grid size={{ xs: 12, lg: 6 }}>
+          <SectionCard title="Revenue">
+            <EmptyState
+              title="No revenue data yet"
+              description="Revenue charts and billing trends will appear here once data is available."
+            />
+          </SectionCard>
+        </Grid>
 
-      <SectionCard title="Recent Activity">
-        <EmptyState
-          title="No recent activity"
-          description="New events, user actions, and system updates will appear here."
-        />
-      </SectionCard>
+        <Grid size={{ xs: 12, lg: 6 }}>
+          <SectionCard title="Recent Activity">
+            <EmptyState
+              title="No recent activity"
+              description="New events, user actions, and system updates will appear here."
+            />
+          </SectionCard>
+        </Grid>
+      </Grid>
     </Stack>
   )
 }
