@@ -3,6 +3,8 @@
 Modern admin dashboard built with **React, TypeScript and Material UI**.  
 The goal of this project is to showcase scalable frontend architecture, clean code practices and real-world UI patterns used in SaaS applications.
 
+The project is being built iteratively, with the core application shell and shared UI foundations already in place while feature modules are actively in progress.
+
 ---
 
 ## ✨ Features
@@ -29,6 +31,15 @@ The goal of this project is to showcase scalable frontend architecture, clean co
 - **MSW (Mock Service Worker)**
 - **Recharts / Nivo**
 - **Vitest + React Testing Library**
+
+---
+
+## 🚧 Current Status
+
+- app shell with sidebar, topbar and routing
+- shared UI foundations such as `PageHeader`, `SectionCard`, `StatCard`, `EmptyState`, `LoadingState` and `ErrorState`
+- base pages for dashboard, users, billing, events and settings
+- next step: domain types, mock data, service layer and richer dashboard content
 
 ---
 
