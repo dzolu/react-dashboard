@@ -3,7 +3,7 @@ import { Button, Grid, Stack } from '@mui/material'
 import { EmptyState } from '@/shared/components/empty-state/EmptyState'
 import { PageHeader } from '@/shared/components/page-header/PageHeader'
 import { SectionCard } from '@/shared/components/section-card/SectionCard'
-import { StatCard } from '@/shared/components/stat-card/StatCard.tsx'
+import { StatCard } from '@/shared/components/stat-card/StatCard'
 
 export function DashboardPage() {
   return (
