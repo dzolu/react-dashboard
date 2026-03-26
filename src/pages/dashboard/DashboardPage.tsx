@@ -1,6 +1,7 @@
-import { Button, Grid, Stack } from '@mui/material'
+import { Button, Grid, Stack, Typography } from '@mui/material'
 
 import { useDashboardStatsQuery } from '@/features/dashboard/hooks/useDashboardStatsQuery.ts'
+import { useEventsQuery } from '@/features/events/hooks/useEventsQuery.ts'
 import { EmptyState } from '@/shared/components/empty-state/EmptyState'
 import { ErrorState } from '@/shared/components/error-state/ErrorState.tsx'
 import { LoadingState } from '@/shared/components/loading-state/LoadingState.tsx'
@@ -14,6 +15,12 @@ export function DashboardPage() {
     isPending: isStatsPending,
     isError: isStatsError,
   } = useDashboardStatsQuery()
+
+  const {
+    data: events,
+    isPending: isEventsPending,
+    isError: isEventsError,
+  } = useEventsQuery()
 
   const formatHelperText = (value: number) =>
     `${value > 0 ? '+' : ''}${value.toLocaleString()}%`
@@ -79,10 +86,30 @@ export function DashboardPage() {
 
         <Grid size={{ xs: 12, lg: 6 }}>
           <SectionCard title="Recent Activity">
-            <EmptyState
-              title="No recent activity"
-              description="New events, user actions, and system updates will appear here."
-            />
+            {isEventsPending ? (
+              <LoadingState message="Loading recent activity..." />
+            ) : isEventsError ? (
+              <ErrorState
+                title="Failed to load recent activity"
+                description="Please refresh the page or try again later."
+              />
+            ) : !events || events.length === 0 ? (
+              <EmptyState
+                title="No recent activity"
+                description="New events, user actions, and system updates will appear here."
+              />
+            ) : (
+              <Stack spacing={1.5}>
+                {events.slice(0, 5).map((event) => (
+                  <Stack key={event.id} spacing={0.5}>
+                    <Typography fontWeight={600}>{event.message}</Typography>
+                    <Typography variant="body2" color="text.secondary">
+                      {event.actor} • {event.type}
+                    </Typography>
+                  </Stack>
+                ))}
+              </Stack>
+            )}
           </SectionCard>
         </Grid>
       </Grid>
