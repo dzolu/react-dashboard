@@ -31,7 +31,7 @@ export function DashboardPage() {
         title="Dashboard"
         subtitle="Monitor key metrics, team activity, and platform health."
         actions={<Button variant="contained">Generate report</Button>}
-      />{' '}
+      />
       {isStatsPending ? (
         <LoadingState message="Loading dashboard metrics..." />
       ) : isStatsError || !stats ? (
