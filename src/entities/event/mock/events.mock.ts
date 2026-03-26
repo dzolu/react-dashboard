@@ -1,0 +1,68 @@
+import type { AuditEvent } from '../model/types.ts'
+
+export const eventsMock: AuditEvent[] = [
+  {
+    id: 'evt_001',
+    type: 'user.created',
+    message: 'Olivia Martin created a new workspace.',
+    severity: 'info',
+    createdAt: '2025-02-14T08:15:00Z',
+    actor: 'Olivia Martin',
+  },
+  {
+    id: 'evt_002',
+    type: 'subscription.renewed',
+    message: 'Enterprise subscription renewed successfully.',
+    severity: 'info',
+    createdAt: '2025-02-14T08:45:00Z',
+    actor: 'System',
+  },
+  {
+    id: 'evt_003',
+    type: 'payment.failed',
+    message: 'Monthly payment failed for Liam Johnson.',
+    severity: 'error',
+    createdAt: '2025-02-14T09:10:00Z',
+    actor: 'Billing Service',
+  },
+  {
+    id: 'evt_004',
+    type: 'settings.updated',
+    message: 'Security settings were updated.',
+    severity: 'warning',
+    createdAt: '2025-02-14T09:40:00Z',
+    actor: 'Sophia Brown',
+  },
+  {
+    id: 'evt_005',
+    type: 'role.changed',
+    message: 'Emma Davis was promoted to viewer access.',
+    severity: 'info',
+    createdAt: '2025-02-14T10:05:00Z',
+    actor: 'William Thomas',
+  },
+  {
+    id: 'evt_006',
+    type: 'user.suspended',
+    message: 'Noah Wilson account was suspended.',
+    severity: 'warning',
+    createdAt: '2025-02-14T10:20:00Z',
+    actor: 'Admin Panel',
+  },
+  {
+    id: 'evt_007',
+    type: 'login.failed',
+    message: 'Multiple failed login attempts detected.',
+    severity: 'error',
+    createdAt: '2025-02-14T10:50:00Z',
+    actor: 'Security Monitor',
+  },
+  {
+    id: 'evt_008',
+    type: 'report.generated',
+    message: 'Monthly revenue report was generated.',
+    severity: 'info',
+    createdAt: '2025-02-14T11:15:00Z',
+    actor: 'James Taylor',
+  },
+]
