@@ -60,7 +60,7 @@ export function DashboardPage() {
           <Grid size={{ xs: 12, sm: 6, lg: 3 }}>
             <StatCard
               label="Monthly Revenue"
-              value={`${stats.monthlyRevenue.toLocaleString()}`}
+              value={`$${stats.monthlyRevenue.toLocaleString()}`}
               helperText={`${formatHelperText(stats.monthlyRevenueChange)} vs last month`}
             />
           </Grid>
