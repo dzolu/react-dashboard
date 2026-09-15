@@ -1,0 +1,33 @@
+@host = http://localhost:8080
+
+### Login as Editor
+POST {{host}}/api/auth/login
+Content-Type: application/json
+
+{
+  "email": "editor@securecms.local",
+  "password": "Editor123!"
+}
+
+### Copy accessToken from login response
+@token = paste-token-here
+
+### List events
+GET {{host}}/api/events
+Authorization: Bearer {{token}}
+
+### Create event
+POST {{host}}/api/events
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "type": "content.published",
+  "message": "Landing page was published.",
+  "severity": "info",
+  "actor": "Eva Editor"
+}
+
+### Editor receives 403; an Admin token can delete
+DELETE {{host}}/api/events/replace-event-id
+Authorization: Bearer {{token}}

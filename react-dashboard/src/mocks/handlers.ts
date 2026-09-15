@@ -1,0 +1,16 @@
+import { http, HttpResponse } from 'msw'
+
+import { dashboardStatsMock } from '@/entities/dashboard/mock/dashboard.mock'
+import { usersMock } from '@/entities/user/mock/users.mock'
+
+export const handlers = [
+  http.get('/api/dashboard/stats', async () => {
+    await new Promise((resolve) => setTimeout(resolve, 500))
+    return HttpResponse.json(dashboardStatsMock)
+  }),
+
+  http.get('/api/users', async () => {
+    await new Promise((resolve) => setTimeout(resolve, 500))
+    return HttpResponse.json(usersMock)
+  }),
+]
