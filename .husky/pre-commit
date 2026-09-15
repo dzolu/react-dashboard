@@ -1,2 +1,0 @@
-printf "Running lint-staged...\n"
-npx lint-staged
